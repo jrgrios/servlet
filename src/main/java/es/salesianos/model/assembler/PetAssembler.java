@@ -5,16 +5,14 @@ import javax.servlet.http.HttpServletRequest;
 import es.salesianos.model.Pet;
 
 public class PetAssembler {
-	public static Pet assembleOwnerFrom(HttpServletRequest req) {
-		Pet owner = new Pet();
+	public static Pet assemblePetFrom(HttpServletRequest req) {
+		Pet pet = new Pet();
 		String codOwner=req.getParameter("codOwner");
+		String name=req.getParameter("name");
 		if(null != codOwner) {
-			owner.setCodOwner(Integer.parseInt(codOwner));
+			pet.setCodOwner(Integer.parseInt(codOwner));
 		}
-		String name = req.getParameter("name");
-		String lastname = req.getParameter("surname");
-		owner.setName(name);
-		owner.setSurname(lastname);
-		return owner;
+		pet.setName(name);
+		return pet;
 	}
 }

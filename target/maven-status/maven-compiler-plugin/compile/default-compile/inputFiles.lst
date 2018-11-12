@@ -4,10 +4,15 @@
 /home/alberto/GIT/servletMascotas/src/main/java/es/salesianos/utils/DateConverter.java
 /home/alberto/GIT/servletMascotas/src/main/java/es/salesianos/servlet/updateOwnerServlet.java
 /home/alberto/GIT/servletMascotas/src/main/java/es/salesianos/servlet/editOwnerServlet.java
+/home/alberto/GIT/servletMascotas/src/main/java/es/salesianos/model/Pet.java
+/home/alberto/GIT/servletMascotas/src/main/java/es/salesianos/servlet/recoveryAddOwnerServlet.java
 /home/alberto/GIT/servletMascotas/src/main/java/es/salesianos/servlet/addOwnerServlet.java
+/home/alberto/GIT/servletMascotas/src/main/java/es/salesianos/servlet/addPetServlet.java
+/home/alberto/GIT/servletMascotas/src/main/java/es/salesianos/service/PetService.java
 /home/alberto/GIT/servletMascotas/src/main/java/es/salesianos/repository/Repository.java
 /home/alberto/GIT/servletMascotas/src/main/java/es/salesianos/service/ListService.java
 /home/alberto/GIT/servletMascotas/src/main/java/es/salesianos/model/Owner.java
 /home/alberto/GIT/servletMascotas/src/main/java/es/salesianos/servlet/ListadoServlet.java
+/home/alberto/GIT/servletMascotas/src/main/java/es/salesianos/model/assembler/PetAssembler.java
 /home/alberto/GIT/servletMascotas/src/main/java/es/salesianos/model/assembler/OwnerAssembler.java
 /home/alberto/GIT/servletMascotas/src/main/java/es/salesianos/connection/ConnectionH2.java

@@ -10,6 +10,7 @@ import java.util.List;
 import es.salesianos.connection.ConnectionH2;
 import es.salesianos.connection.ConnectionManager;
 import es.salesianos.model.Owner;
+import es.salesianos.model.Pet;
 
 
 
@@ -177,6 +178,57 @@ public class Repository {
 		}
 		manager.close(conn);
 		return ownerInDatabase;
+	}
+
+	public void insertPet(Pet pet) {
+		Connection conn = manager.open(jdbcUrl);
+		PreparedStatement preparedStatement = null;
+		try {
+			preparedStatement = conn.prepareStatement("INSERT INTO PET (petName,codOwner)" +
+					"VALUES (?, ?)");
+			preparedStatement.setString(1, pet.getName());
+			preparedStatement.setInt(2, pet.getCodOwner());
+			preparedStatement.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new RuntimeException(e);
+		}finally {
+			close(preparedStatement);
+		}
+		
+		
+		manager.close(conn);
+		
+	}
+	
+	public List<Pet> searchAllPets() {
+		List<Pet> listPets = new ArrayList<Pet>();
+		Connection conn = manager.open(jdbcUrl);
+		ResultSet resultSet = null;
+		PreparedStatement prepareStatement = null;
+		try {
+			prepareStatement = conn.prepareStatement("SELECT * FROM PET WHERE codOwner=?");
+			resultSet = prepareStatement.executeQuery();
+			while (resultSet.next()) {
+				Pet petInDatabase = new Pet();
+				
+				petInDatabase.setName(resultSet.getString(1));
+				petInDatabase.setCodOwner(resultSet.getInt(2));
+				
+
+				listPets.add(petInDatabase);
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new RuntimeException(e);
+		} finally {
+			close(resultSet);
+			close(prepareStatement);
+			manager.close(conn);
+		}
+
+		return listPets;
 	}
 
 }
