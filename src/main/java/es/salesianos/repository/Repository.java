@@ -138,10 +138,23 @@ public class Repository {
 				ownerInDatabase.setCodOwner(resultSet.getInt(1));
 				ownerInDatabase.setName(resultSet.getString(2));
 				ownerInDatabase.setSurname(resultSet.getString(3));
-
+				
 				listOwners.add(ownerInDatabase);
 			}
 
+			for (Owner owner : listOwners) {
+				
+				prepareStatement = conn.prepareStatement(
+						"SELECT * FROM PET where codOwner="+owner.getCodOwner());
+				resultSet = prepareStatement.executeQuery();
+				while (resultSet.next()) {
+					Pet pet = new Pet();
+					pet.setName(resultSet.getString(1));
+					pet.setCodOwner(resultSet.getInt(2));
+					owner.getMascotas().add(pet);
+				}
+			}
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 			throw new RuntimeException(e);

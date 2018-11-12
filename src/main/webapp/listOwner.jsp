@@ -10,7 +10,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>List Owners and their pets</title>
 </head>
 <body>
 <form action="cargarListado" method="post">
@@ -52,7 +52,11 @@ List<Owner> owners = (List<Owner>)request.getAttribute("listAllOwners");
 				<td><a href="/editOwner?codOwner=${owner1.codOwner}">EDIT</a> </td>
 				<td><a href="/deleteOwner?codOwner=${owner1.codOwner}">DELETE</a> </td>
 				<td><a href="/recoveryAddCodOwner?codOwner=${owner1.codOwner}">ADD PET</a> </td>
-	    		<td></td>
+	    		<td>
+	    			<c:forEach var="pet" items="${owner1.mascotas}">
+	    				<c:out value="${pet.name} "/>
+	    			</c:forEach>
+	    		</td>
 	    	</tr>
 		</c:forEach>
 	</tbody>

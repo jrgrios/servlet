@@ -8,7 +8,7 @@ public class Owner {
 	private Integer codOwner;
 	private String name;
 	private String surname;
-	private List<Pet> mascotas=new ArrayList();
+	private List<Pet> mascotas = new ArrayList<Pet>();
 	
 	public void setMascotas(List<Pet> mascotas) {
 		this.mascotas=mascotas;
@@ -17,6 +17,7 @@ public class Owner {
 	public List<Pet> getMascotas() {
 		return mascotas;
 	}
+	
 	
 	public void addToListPet(Pet pet) {
 		mascotas.add(pet);
