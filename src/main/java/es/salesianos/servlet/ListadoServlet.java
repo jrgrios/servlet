@@ -24,7 +24,6 @@ public class ListadoServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		List<Owner> listAllOwners = servicio.listAllOwners();
 		req.setAttribute("listAllOwners", listAllOwners);
-		
 		redirect(req,resp);
 	}
 	

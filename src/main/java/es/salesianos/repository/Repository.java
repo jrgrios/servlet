@@ -109,11 +109,11 @@ public class Repository {
 		Connection conn = manager.open(jdbcUrl);
 		PreparedStatement preparedStatement = null;
 		try {
-			preparedStatement = conn
-					.prepareStatement("DELETE FROM OWNER WHERE codOwner = ?");
-			preparedStatement.setInt(1, codOwner);
+			
+			preparedStatement = deletePetsFor(codOwner, conn);
+			
+			preparedStatement = deleteOwner(codOwner, conn);
 
-			preparedStatement.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
 			throw new RuntimeException(e);
@@ -124,12 +124,46 @@ public class Repository {
 
 	}
 
+	private PreparedStatement deleteOwner(Integer codOwner, Connection conn) throws SQLException {
+		PreparedStatement preparedStatement;
+		preparedStatement = conn
+				.prepareStatement("DELETE FROM OWNER WHERE codOwner = ?");
+		preparedStatement.setInt(1, codOwner);
+		preparedStatement.executeUpdate();
+		return preparedStatement;
+	}
+
+	private PreparedStatement deletePetsFor(Integer codOwner, Connection conn) throws SQLException {
+		PreparedStatement preparedStatement;
+		preparedStatement = conn
+				.prepareStatement("DELETE FROM PET WHERE codOwner = ?");
+		preparedStatement.setInt(1, codOwner);
+		preparedStatement.executeUpdate();
+		return preparedStatement;
+	}
+
 	public List<Owner> searchAll() {
 		List<Owner> listOwners = new ArrayList<Owner>();
 		Connection conn = manager.open(jdbcUrl);
 		ResultSet resultSet = null;
 		PreparedStatement prepareStatement = null;
 		try {
+			/*
+			prepareStatement = conn.prepareStatement("
+			SELECT * FROM OWNER o, PET p INNER JOIN WHERE o.codOwner = p.codOwner");
+			while (resultSet.next()) {
+				Owner ownerInDatabase = new Owner();
+				ownerInDatabase.setCodOwner(resultSet.getInt(1));
+				ownerInDatabase.setName(resultSet.getString(2));
+				ownerInDatabase.setSurname(resultSet.getString(3));
+				Pet pet = new Pet();
+				pet.setName(resultSet.getString(4)) 
+				pet.setCodOwner(resultSet.getString(5)) 
+				ownerInDatabase.getMascotas().add(pet)
+				listOwners.add(ownerInDatabase);
+			}
+			 */
+			
 			prepareStatement = conn.prepareStatement("SELECT * FROM OWNER");
 			resultSet = prepareStatement.executeQuery();
 			while (resultSet.next()) {
