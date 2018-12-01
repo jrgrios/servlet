@@ -20,6 +20,19 @@ public class PetService {
 	
 	public void addPet(Pet pet) {
 		repository.insertPet(pet);
-		
+	}
+	
+	public void searchAndDelete(Integer codOwner, String PetName) {
+		repository.searchAndDelete(codOwner,PetName);
+	}
+
+
+	public Pet search(Integer codOwner, String petName) {
+		Pet PetInDataBase=repository.search(codOwner,petName);
+		return PetInDataBase;
+	}
+
+	public void update(Pet pet,Object antiguoName) {
+		repository.updatePet(pet ,  antiguoName);
 	}
 }

@@ -2,20 +2,19 @@ package es.salesianos.model.assembler;
 
 import javax.servlet.http.HttpServletRequest;
 
+import es.salesianos.model.Actor;
 import es.salesianos.model.Owner;
 
 public class OwnerAssembler {
 
-	public static Owner assembleOwnerFrom(HttpServletRequest req) {
-		Owner owner = new Owner();
-		String codOwner=req.getParameter("codOwner");
-		if(null != codOwner) {
-			owner.setCodOwner(Integer.parseInt(codOwner));
-		}
-		String name = req.getParameter("name");
-		String lastname = req.getParameter("surname");
-		owner.setName(name);
-		owner.setSurname(lastname);
-		return owner;
+	public static Actor assembleOwnerFrom(HttpServletRequest req) {
+		Actor actor = new Actor();
+		String lugarNacimiento=req.getParameter("lugarNacimiento");
+		String nomActor=req.getParameter("nomActor");
+		String apellidos=req.getParameter("apellidos");
+		actor.setLugarNacimiento(lugarNacimiento);
+		actor.setNomActor(nomActor);
+		actor.setApellidos(apellidos);
+		return actor;
 	}
 }

@@ -2,6 +2,9 @@ package es.salesianos.service;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
+import es.salesianos.model.Actor;
 import es.salesianos.model.Owner;
 import es.salesianos.repository.Repository;
 import es.salesianos.utils.DateConverter;
@@ -9,7 +12,11 @@ import es.salesianos.utils.DateConverter;
 public class ListService {
 	private Repository repository = new Repository();
 	
-	public List<Owner> listAllOwners() {
+	public List<Actor> listAllOwners() {
 		return repository.searchAll();
+	}
+
+	public List<Owner> listAllOwnersByPerson(String nombreAbuscar) {
+		return repository.searchAllByPerson(nombreAbuscar);
 	}
 }

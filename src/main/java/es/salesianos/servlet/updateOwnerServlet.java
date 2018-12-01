@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import es.salesianos.model.Actor;
 import es.salesianos.model.Owner;
 import es.salesianos.model.assembler.OwnerAssembler;
 import es.salesianos.service.OwnerService;
@@ -19,8 +20,8 @@ OwnerService service = new OwnerService();
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		Owner owner = OwnerAssembler.assembleOwnerFrom(req);
-		service.insertOrUpdate(owner);
+		Actor actor = OwnerAssembler.assembleOwnerFrom(req);
+		service.insertOrUpdate(actor);
 		redirect(req, resp);
 	}
 	protected void redirect(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {

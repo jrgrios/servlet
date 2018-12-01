@@ -2,9 +2,9 @@
   <modelVersion>4.0.0</modelVersion>
   
   <groupId>es.salesianos</groupId>
-  <artifactId>servletMascotas</artifactId>
+  <artifactId>PruebaExamen</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-  <name>servletMascotas</name>
+  <name>PruebaExamen</name>
   <packaging>war</packaging>
   
 	<dependencies>
@@ -29,6 +29,17 @@
 			<artifactId>jstl</artifactId>
 			<version>1.2</version>
 		</dependency>
+		
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-api</artifactId>
+			<version>2.6.1</version>
+		</dependency>
+		<dependency>
+		    <groupId>org.apache.logging.log4j</groupId>
+		    <artifactId>log4j-core</artifactId>
+		    <version>2.6.1</version>
+		</dependency>
 
 
 	</dependencies>
@@ -39,7 +50,7 @@
 			<plugin>
 				<groupId>org.eclipse.jetty</groupId>
 				<artifactId>jetty-maven-plugin</artifactId>
-				<version>9.4.0.M0</version>
+				<version>9.4.14.v20181114</version>
 			</plugin>
 		</plugins>
 	</build>

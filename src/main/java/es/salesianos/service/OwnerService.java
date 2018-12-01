@@ -8,7 +8,9 @@ import javax.servlet.http.HttpServletRequest;
 
 import es.salesianos.connection.ConnectionH2;
 import es.salesianos.connection.ConnectionManager;
+import es.salesianos.model.Actor;
 import es.salesianos.model.Owner;
+import es.salesianos.model.Pet;
 import es.salesianos.model.assembler.OwnerAssembler;
 import es.salesianos.repository.Repository;
 import es.salesianos.utils.DateConverter;
@@ -20,20 +22,20 @@ public class OwnerService {
 	private DateConverter converter = new DateConverter();
 	
 	
-	public Owner assembleOwnerFromRequest(HttpServletRequest req) {
+	public Actor assembleOwnerFromRequest(HttpServletRequest req) {
 		return OwnerAssembler.assembleOwnerFrom(req);
 	}
 	
-	public void addOwner(Owner owner) {
-		repository.insert(owner);
+	public void addOwner(Actor actor) {
+		repository.insert(actor);
 	}
 
-	public void insertOrUpdate(Owner ownerFormulario) {
-		Owner userInDatabase = repository.search(ownerFormulario);
-		if(null == userInDatabase){
-			repository.insert(ownerFormulario);
+	public void insertOrUpdate(Actor actor) {
+		//Owner userInDatabase = repository.search(ownerFormulario);
+		if(null == actor){
+			//repository.insert(ownerFormulario);
 		}else{
-			repository.update(ownerFormulario);
+			//repository.update(ownerFormulario);
 		}
 	}
 	
@@ -53,8 +55,6 @@ public class OwnerService {
 	public void setRepository(Repository repository) {
 		this.repository = repository;
 	}
-	
-	
-	
+
 
 }

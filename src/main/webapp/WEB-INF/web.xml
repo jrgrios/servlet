@@ -20,6 +20,11 @@
 		<servlet-name>listado</servlet-name>
 		<servlet-class>es.salesianos.servlet.ListadoServlet</servlet-class>
 	</servlet>
+	
+	<servlet>
+		<servlet-name>listadoByPerson</servlet-name>
+		<servlet-class>es.salesianos.servlet.ListadoServletByPerson</servlet-class>
+	</servlet>
 
 	<servlet>
 		<servlet-name>updateOwnerServlet</servlet-name>
@@ -48,10 +53,27 @@
 		<servlet-name>AddPetServlet</servlet-name>
 		<servlet-class>es.salesianos.servlet.addPetServlet</servlet-class>
 	</servlet>
+	
+	<servlet>
+		<servlet-name>deletePetServlet</servlet-name>
+		<servlet-class>es.salesianos.servlet.deletePetServlet</servlet-class>
+	</servlet>
 
 	<servlet>
 		<servlet-name>recoveryAddOwnerServlet</servlet-name>
 		<servlet-class>es.salesianos.servlet.recoveryAddOwnerServlet
+		</servlet-class>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>editPetServlet</servlet-name>
+		<servlet-class>es.salesianos.servlet.editPetServlet
+		</servlet-class>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>updatePetServlet</servlet-name>
+		<servlet-class>es.salesianos.servlet.updatePetServlet
 		</servlet-class>
 	</servlet>
 
@@ -63,6 +85,11 @@
 	<servlet-mapping>
 		<servlet-name>listado</servlet-name>
 		<url-pattern>cargarListado</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>listadoByPerson</servlet-name>
+		<url-pattern>cargarListadoByPerson</url-pattern>
 	</servlet-mapping>
 
 	<servlet-mapping>
@@ -94,6 +121,21 @@
 	<servlet-mapping>
 		<servlet-name>AddPetServlet</servlet-name>
 		<url-pattern>/addPet</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>deletePetServlet</servlet-name>
+		<url-pattern>/deletePet	</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>updatePetServlet</servlet-name>
+		<url-pattern>/updatePet	</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>editPetServlet</servlet-name>
+		<url-pattern>/editPet	</url-pattern>
 	</servlet-mapping>
 
 	<welcome-file-list>

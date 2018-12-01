@@ -11,26 +11,26 @@ import javax.servlet.http.HttpServletResponse;
 
 import es.salesianos.service.ListService;
 import es.salesianos.service.PetService;
-import es.salesianos.model.Actor;
 import es.salesianos.model.Owner;
 import es.salesianos.model.Pet;
 import es.salesianos.repository.Repository;
 
-public class ListadoServlet extends HttpServlet {
+public class ListadoServletByPerson extends HttpServlet {
 	
 	private ListService servicio = new  ListService();
 	private Repository repository = new  Repository();
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		List<Actor> listAllActors = servicio.listAllOwners();
-		req.setAttribute("listAllActors", listAllActors);
+		////System.out.println(req.getParameter("nombreAbuscar"));
+		List<Owner> listAllOwnersByName = servicio.listAllOwnersByPerson((String)req.getParameter("nombreAbuscar"));
+		req.setAttribute("listAllOwnersByName", listAllOwnersByName);
 		redirect(req,resp);
 	}
 	
 	
 	protected void redirect(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/listOwner.jsp");
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/listOwnerByPerson.jsp");
 		dispatcher.forward(req,resp);
 	}
 }

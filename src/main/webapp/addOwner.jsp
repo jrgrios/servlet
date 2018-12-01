@@ -8,8 +8,9 @@
 </head>
 <body>
 	<form action="inscribirAlumnos" method="post">
-		<span>Nombre:</span><input type="text" name="name">
-		<span>Apellidos:</span><input type="text" name="surname">
+		<span>LugarNacimiento:</span><input type="text" name="lugarNacimiento">
+		<span>Nombre:</span><input type="text" name="nomActor">
+		<span>apellidos:</span><input type="text" name="apellidos">
 		<input type="submit">
 	</form>
 </body>
