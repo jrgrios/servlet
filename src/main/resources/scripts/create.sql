@@ -11,7 +11,7 @@ create table IF NOT EXISTS peliculas(
     ano varchar(25) NOT NULL,
     trailer varchar(25) NOT NULL,
     comentario varchar(25) NOT NULL,
-    codDirector varchar(25) NOT NULL
+    codDirector varchar(25)
 );
 
 create table IF NOT EXISTS directores(

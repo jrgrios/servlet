@@ -11,7 +11,7 @@
 		<a href="addOwner.jsp">Quiero añadir un nuevo actor</a>
 	</div>
 	<div>
-		<a href="addOwner.jsp">Quiero añadir un nuevo actor</a>
+		<a href="addPelicula.jsp">Quiero añadir un nuevo actor</a>
 	</div>
 	<div>
 		<a href="listOwner.jsp">Quiero mostrar la lista de los alumnos y

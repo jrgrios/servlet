@@ -13,17 +13,19 @@
 <title>List Owners and their pets</title>
 </head>
 <body>
-	<form action="cargarListado" method="post">
+	<form action="cargarListadoPeliculas" method="post">
+		<input type="hidden" value="<%= request.getAttribute("codActor") %>" name="codActor">
 		<input type="submit" value="ver listado">
 	</form>
 
 
 	<%
-		List<Actor> actors = (List<Actor>) request.getAttribute("listAllActors");
-		pageContext.setAttribute("actors", actors);
-
 		List<Pelicula> peliculas = (List<Pelicula>) request.getAttribute("listAllPeliculas");
 		pageContext.setAttribute("peliculas", peliculas);
+/*
+		Integer codActor = (Integer) request.getAttribute("codActor");
+		pageContext.setAttribute("codActor", request.getAttribute("codActor"));
+		*/
 	%>
 	<br />
 	<br />
@@ -47,33 +49,13 @@
 			</tr>
 		</thead>
 		<tbody>
-			<c:forEach var="actor1" items="${listAllActors}">
+			<c:forEach var="pelicula" items="${listAllPeliculas}">
 				<tr>
-					<td><c:out value="${actor1.lugarNacimiento}" /></td>
-					<td><c:out value="${actor1.nomActor}" /></td>
-					<td><c:out value="${actor1.apellidos}" /></td>
-					<td><a href="/editOwner?codOwner=${actor1.codActor}">EDIT</a>
-					</td>
-					<td><a href="/confirmDeleteOwner?codOwner=${actor1.codActor}">DELETE</a>
-					</td>
-					<td><a href="/addPeliculaActor?codActor=${actor1.codActor}">ADD PELICULA</a>
-					</td>
-					<td>
-						<c:forEach var="pelicula" items="${listAllPeliculas}">
-							<c:out value="${pelicula.codPelicula} " />
-							<c:out value="${pelicula.titulo} " />
-							<c:out value="${pelicula.ano} " />
-							<c:out value="${pelicula.trailer} " />
-							<c:out value="${pelicula.comentario} " />
-							
-							<a
-								href="/deletePet?codOwner=${pelicula.codPelicula}&PetName=${pelicula.codPelicula}">AÑADIR PELICULA A ACTOR</a>
-							<a
-								href="/editPet?codOwner=${pelicula.codPelicula}&PetName=${pelicula.codPelicula}">EDITAR
-								BORRAR PELICULA A ACTOR</a>
-							<br>
-						</c:forEach>
-					</td>
+					<td><c:out value="${pelicula.codPelicula}" /></td>
+					<td><c:out value="${pelicula.titulo}" /></td>
+					<td><a href="/editPet?codPelicula=${pelicula.codPelicula}&codActor=<%= request.getAttribute("codActor") %>">ADD THIS FILM</a></td>
+
+
 
 					<%-- <td>
 	    			<c:forEach var="pet" items="${owner1.mascotas}">
@@ -86,7 +68,7 @@
 
 				</tr>
 			</c:forEach>
-				
+
 		</tbody>
 	</table>
 

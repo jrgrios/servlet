@@ -5,36 +5,43 @@ import java.util.Date;
 import java.util.List;
 
 public class Pelicula {
-	private Integer codActor;
-	private String lugarNacimiento;
-	private String nomActor;
-	private String apellidos;
-	public Integer getCodActor() {
-		return codActor;
-	}
-	public void setCodActor(Integer codActor) {
-		this.codActor = codActor;
-	}
-	public String getLugarNacimiento() {
-		return lugarNacimiento;
-	}
-	public void setLugarNacimiento(String i) {
-		this.lugarNacimiento = i;
-	}
-	public String getNomActor() {
-		return nomActor;
-	}
-	public void setNomActor(String nomActor) {
-		this.nomActor = nomActor;
-	}
-	public String getApellidos() {
-		return apellidos;
-	}
-	public void setApellidos(String apellidos) {
-		this.apellidos = apellidos;
-	}
-
-
+	private Integer codPelicula;
+	private String titulo;
+	private String ano;
+	private String comentario;
+	private String trailer;
 	
-
+	
+	public String getTrailer() {
+		return trailer;
+	}
+	public void setTrailer(String trailer) {
+		this.trailer = trailer;
+	}
+	public Integer getCodPelicula() {
+		return codPelicula;
+	}
+	public void setCodPelicula(Integer codPelicula) {
+		this.codPelicula = codPelicula;
+	}
+	public String getTitulo() {
+		return titulo;
+	}
+	public void setTitulo(String titulo) {
+		this.titulo = titulo;
+	}
+	public String getAno() {
+		return ano;
+	}
+	public void setAno(String ano) {
+		this.ano = ano;
+	}
+	public String getComentario() {
+		return comentario;
+	}
+	public void setComentario(String comentario) {
+		this.comentario = comentario;
+	}
+	
+	
 }

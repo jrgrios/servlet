@@ -17,13 +17,23 @@
 	</servlet>
 
 	<servlet>
+		<servlet-name>addPeliculaServlet</servlet-name>
+		<servlet-class>es.salesianos.servlet.addPeliculaServlet</servlet-class>
+	</servlet>
+	<servlet>
 		<servlet-name>listado</servlet-name>
 		<servlet-class>es.salesianos.servlet.ListadoServlet</servlet-class>
 	</servlet>
 	
 	<servlet>
+		<servlet-name>listadoPeliculas</servlet-name>
+		<servlet-class>es.salesianos.servlet.ListadoServletPeliculas</servlet-class>
+	</servlet>
+
+	<servlet>
 		<servlet-name>listadoByPerson</servlet-name>
-		<servlet-class>es.salesianos.servlet.ListadoServletByPerson</servlet-class>
+		<servlet-class>es.salesianos.servlet.ListadoServletByPerson
+		</servlet-class>
 	</servlet>
 
 	<servlet>
@@ -53,7 +63,7 @@
 		<servlet-name>AddPetServlet</servlet-name>
 		<servlet-class>es.salesianos.servlet.addPetServlet</servlet-class>
 	</servlet>
-	
+
 	<servlet>
 		<servlet-name>deletePetServlet</servlet-name>
 		<servlet-class>es.salesianos.servlet.deletePetServlet</servlet-class>
@@ -64,16 +74,22 @@
 		<servlet-class>es.salesianos.servlet.recoveryAddOwnerServlet
 		</servlet-class>
 	</servlet>
-	
+
 	<servlet>
 		<servlet-name>editPetServlet</servlet-name>
 		<servlet-class>es.salesianos.servlet.editPetServlet
 		</servlet-class>
 	</servlet>
-	
+
 	<servlet>
 		<servlet-name>updatePetServlet</servlet-name>
 		<servlet-class>es.salesianos.servlet.updatePetServlet
+		</servlet-class>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>addPeliculaActor</servlet-name>
+		<servlet-class>es.salesianos.servlet.addPeliculaActor
 		</servlet-class>
 	</servlet>
 
@@ -83,10 +99,20 @@
 	</servlet-mapping>
 
 	<servlet-mapping>
+		<servlet-name>addPeliculaServlet</servlet-name>
+		<url-pattern>inscribirPelicula</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
 		<servlet-name>listado</servlet-name>
 		<url-pattern>cargarListado</url-pattern>
 	</servlet-mapping>
 	
+	<servlet-mapping>
+		<servlet-name>listadoPeliculas</servlet-name>
+		<url-pattern>cargarListadoPeliculas</url-pattern>
+	</servlet-mapping>
+
 	<servlet-mapping>
 		<servlet-name>listadoByPerson</servlet-name>
 		<url-pattern>cargarListadoByPerson</url-pattern>
@@ -122,20 +148,25 @@
 		<servlet-name>AddPetServlet</servlet-name>
 		<url-pattern>/addPet</url-pattern>
 	</servlet-mapping>
-	
+
 	<servlet-mapping>
 		<servlet-name>deletePetServlet</servlet-name>
 		<url-pattern>/deletePet	</url-pattern>
 	</servlet-mapping>
-	
+
 	<servlet-mapping>
 		<servlet-name>updatePetServlet</servlet-name>
 		<url-pattern>/updatePet	</url-pattern>
 	</servlet-mapping>
-	
+
 	<servlet-mapping>
 		<servlet-name>editPetServlet</servlet-name>
 		<url-pattern>/editPet	</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>addPeliculaActor</servlet-name>
+		<url-pattern>/addPeliculaActor	</url-pattern>
 	</servlet-mapping>
 
 	<welcome-file-list>

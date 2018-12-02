@@ -17,25 +17,24 @@ import es.salesianos.model.Pelicula;
 import es.salesianos.model.Pet;
 import es.salesianos.repository.Repository;
 
-public class ListadoServlet extends HttpServlet {
+public class ListadoServletPeliculas extends HttpServlet {
 	
 	private ListService servicio = new  ListService();
 	private Repository repository = new  Repository();
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		List<Actor> listAllActors = servicio.listAllOwners();
 		List<Pelicula> listAllPeliculas = servicio.listAllPeliculas();
-
-		req.setAttribute("listAllActors", listAllActors);
+			
 		req.setAttribute("listAllPeliculas", listAllPeliculas);
+		req.setAttribute("codActor",req.getParameter("codActor"));
 
 		redirect(req,resp);
 	}
 	
 	
 	protected void redirect(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/listOwner.jsp");
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/listPeliculas.jsp");
 		dispatcher.forward(req,resp);
 	}
 }

@@ -10,6 +10,7 @@ import es.salesianos.connection.ConnectionH2;
 import es.salesianos.connection.ConnectionManager;
 import es.salesianos.model.Actor;
 import es.salesianos.model.Owner;
+import es.salesianos.model.Pelicula;
 import es.salesianos.model.Pet;
 import es.salesianos.model.assembler.OwnerAssembler;
 import es.salesianos.repository.Repository;
@@ -25,9 +26,16 @@ public class OwnerService {
 	public Actor assembleOwnerFromRequest(HttpServletRequest req) {
 		return OwnerAssembler.assembleOwnerFrom(req);
 	}
+	public Pelicula assemblePeliculaFromRequest(HttpServletRequest req) {
+		return OwnerAssembler.assemblePeliculaFrom(req);
+	}
 	
 	public void addOwner(Actor actor) {
 		repository.insert(actor);
+	}
+	
+	public void addPelicula(Pelicula pelicula) {
+		repository.insertPelicula(pelicula);
 	}
 
 	public void insertOrUpdate(Actor actor) {
